@@ -1,0 +1,16 @@
+{
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "categories": "Categories",
+    "companies": "Companies",
+    "products": "Products",
+    "orders": "Orders",
+    "users": "Users",
+    "settings": "Settings",
+
+    "en":"English",
+    "ru":"Russian",
+    "uz":"Uzbek",
+
+    "create":"Create"
+}
