@@ -75,7 +75,13 @@ export default defineComponent({
           <input v-model="password" type="password" placeholder="Password" style="padding: 0 35px;" />
         </div>
       </div>
-      <h1 class="mt-2">Forgot your password?</h1>
+      <div class="flex items-start mb-4 mt-4">
+        <div class="flex items-center h-5">
+         <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required>
+        </div>
+        <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+        <a href="" for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300" style="margin-left: 110px;">Forgot password? </a>
+      </div>
       <button type="button" @click="loginAsync()" style="width: 150px;"
         class="mt-10 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Login</button>
     </form>

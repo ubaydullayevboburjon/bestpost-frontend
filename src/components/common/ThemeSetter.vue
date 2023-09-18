@@ -5,6 +5,7 @@
     } else {
         document.documentElement.classList.remove('dark')
     }
+    
 </script>
 
 <template>

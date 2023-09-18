@@ -1,12 +1,8 @@
 {
-    "home": "Uy",
-    "dashboard": "Asosiy",
-    "categories": "Kategoriyalar",
-    "companies": "Kompaniyalar",
-    "products": "Maxsulotlar",
-    "orders": "Buyurtmalar",
+    "home": "Asosiy",
     "users": "Foydalanuvchilar",
     "settings": "Sozlamalar",
+    "about": "Haqida",
 
     "en":"Inglizcha",
     "ru":"Ruscha",

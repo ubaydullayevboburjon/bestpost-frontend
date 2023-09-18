@@ -3,7 +3,9 @@ import axios from 'axios';
 
 const instance = axios.create({
   baseURL: "http://localhost:5107",
-  
+  headers:{
+    'Authorization' : `Bearer ${getToken()}`
+  }
 });
 
 // Interceptors for handling common scenarios

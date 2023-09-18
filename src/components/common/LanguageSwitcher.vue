@@ -6,6 +6,7 @@
     t.locale.value = language;
     localStorage.setItem("language", language);
   }
+
 </script>
 <template>
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">

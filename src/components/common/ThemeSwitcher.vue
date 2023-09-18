@@ -1,5 +1,6 @@
 <script setup lang="ts">
-    import { ref } from 'vue';
+import FlowbiteSetup from '@/FlowbiteSetup.vue';
+import { ref } from 'vue';
     let currentThemeIsDark = ref(false);
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         currentThemeIsDark = ref(true);
@@ -23,6 +24,7 @@
     }
 </script>
 <template>
+  <FlowbiteSetup/>
   <button
     id="theme-toggle"
     type="button"
