@@ -5,10 +5,11 @@ import FlowbiteSetup from "@/FlowbiteSetup.vue";
 import axios from "../../plugins/axios";
 import { defineComponent } from "vue";
 import { UserViewModel } from "@/viewmodels/UserViewModel";
+import { getToken } from "@/helpers/TokenHelper";
 
 export default defineComponent({
   components:{
-    ThemeSwitcher,LanguageSwitcher,FlowbiteSetup,axios,defineComponent,
+    ThemeSwitcher,LanguageSwitcher,FlowbiteSetup,axios,defineComponent
   },
   data() {
     return {
@@ -19,6 +20,7 @@ export default defineComponent({
       baseURL: "" as String,
 
       profil:[] as UserViewModel[],
+      content: false as boolean
     }
   },
   methods: {
@@ -26,25 +28,31 @@ export default defineComponent({
       try {
         this.baseURL = axios.defaults.baseURL!;
 
-        const response = await axios.get("/api/user/profile");
+        const response = await axios.get("/api/user/profile",{
+          headers:{
+            'Authorization' : `Bearer ${getToken()}`
+          }
+        });
         const responseData = response.data as any;
-        
         if (responseData) {
           this.firstName = responseData.firstName || "";
           this.lastName = responseData.lastName || "";
           this.email = responseData.email || "";
           this.imageFullPath = this.baseURL + "/" + responseData.imagePath || "";
         }
-        console.log(this.imageFullPath)
 
       } catch (error) {
         console.error('Malumotlarni olishda xatolik:', error);
       }
+    },
+
+    signout(){
+      document.cookie =  "access_token=" + "" + "; expires: SESSION; path=/";
+      document.documentElement.classList.remove('dark')
     }
 
-
   },
-
+ 
   async mounted() {
     await this.getDataAsync();
   },
@@ -90,12 +98,12 @@ export default defineComponent({
                   $t("users") }}</a>
             </li>
             <li>
-              <a href="#"
+              <a href="/create-post"
                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-3 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{
                   $t("create") }}</a>
             </li>
             <li>
-              <a href="#"
+              <a href="/about"
                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-3 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{
                   $t("about") }}</a>
             </li>
@@ -132,9 +140,9 @@ export default defineComponent({
                   role="menuitem">Settings</a>
               </li>
               <li>
-                <a href="auth/login"
+                <a href="/auth/login"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                  role="menuitem">Sign out</a>
+                  role="menuitem" @click="signout()">Sign out</a>
               </li>
             </ul>
           </div>
@@ -142,7 +150,8 @@ export default defineComponent({
       </div>
     </div>
   </div>
-</nav></template>
+</nav>
+</template>
 
 <style>@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');</style>
 

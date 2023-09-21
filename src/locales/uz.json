@@ -8,5 +8,10 @@
     "ru":"Ruscha",
     "uz":"O'zbekcha",
 
+    "firstname":"Ism",
+    "lastname":"Familya",
+    "username":"Taxallus",
+
+
     "create": "Qo'shish"
 }

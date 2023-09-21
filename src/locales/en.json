@@ -8,5 +8,10 @@
     "ru":"Russian",
     "uz":"Uzbek",
 
+    "firstname":"First name",
+    "lastname":"Last name",
+    "username":"Username",
+
+
     "create":"Create"
 }
