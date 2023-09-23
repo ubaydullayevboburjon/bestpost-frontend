@@ -27,12 +27,14 @@ export default defineComponent({
     async getDataAsync() {
       try {
         this.baseURL = axios.defaults.baseURL!;
-
-        const response = await axios.get("/api/user/profile",{
+        const response = await axios.get("/api/users/profile",{
           headers:{
             'Authorization' : `Bearer ${getToken()}`
           }
         });
+        if(response.status!==200){
+          this.$router.push("/")
+        }
         const responseData = response.data as any;
         if (responseData) {
           this.firstName = responseData.firstName || "";
@@ -40,22 +42,42 @@ export default defineComponent({
           this.email = responseData.email || "";
           this.imageFullPath = this.baseURL + "/" + responseData.imagePath || "";
         }
+        
 
       } catch (error) {
         console.error('Malumotlarni olishda xatolik:', error);
       }
     },
+    async checker(){
+            var token = getToken();
+            if(token == undefined || token == ""){
+                this.$router.push("/auth/login")
+            }
+            else if(token != ""){
+                const response = await axios.get("/api/users/profile",{
+                headers:{
+                    'Authorization' : `Bearer ${getToken()}`
+                }
+                });
+                if(response == undefined){
+                this.$router.push("/auth/login")
+                }
+                console.log(response.data)
+            }
+
+        },
 
     signout(){
-      document.cookie =  "access_token=" + "" + "; expires: SESSION; path=/";
+      document.cookie = "access_token=" + "" + "; expires: SESSION; path=/";
       document.documentElement.classList.remove('dark')
-    }
-
+    },
+  
   },
- 
-  async mounted() {
-    await this.getDataAsync();
-  },
+  
+  created(){
+        this.checker();
+        this.getDataAsync();
+    },
   
 });
 
@@ -137,12 +159,12 @@ export default defineComponent({
               <li>
                 <a href="profile-settings"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                  role="menuitem">Settings</a>
+                  role="menuitem">{{ $t("settings") }}</a>
               </li>
               <li>
                 <a href="/auth/login"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white"
-                  role="menuitem" @click="signout()">Sign out</a>
+                  role="menuitem" @click="signout()">{{ $t("signout") }}</a>
               </li>
             </ul>
           </div>

@@ -2,7 +2,7 @@ import { getToken } from '@/helpers/TokenHelper';
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: "http://localhost:5107",
+  baseURL: "http://144.126.212.70:4040",
   headers:{
     'Authorization' : `Bearer ${getToken()}`
   }

@@ -21,6 +21,10 @@ const router = createRouter({
           path: "create-post",
           component: ()=> import('../views/posts/CreatePost.vue')
         },
+        {
+          path: "/",
+          component: ()=> import('../views/home/HomeView.vue')
+        },
       ]
     },
     {
@@ -42,5 +46,7 @@ const router = createRouter({
     }
   ]
 })
+
+
 
 export default router
