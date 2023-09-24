@@ -27,8 +27,12 @@
     "change":"Change",
     "cancel": "Cancel",
     "signout": "Sign out",
+    "notfound":"Posts not found!",
+    "search":"Search",
+    "success":"Success has been changed!",
 
 
-
+    "userPaswordInfo1":"Protect your account",
+    "userPaswordInfo2":"Password must be at least 8 characters long. Must include: «Uppercase», «Lowercase», «Number» and «Characters»",
     "aboutpage":"About Us What is a Personal Blog? These types of platforms are very common on the Internet, only two years ago they became very fashionable, and yet they are still an additional option for web pages. However, sometimes its definition is difficult to determine due to its structure and function. Sometimes they are compared to web platforms and official pages of brands and products. It can be said that personal blogs serve to express individual thoughts, feelings, emotions and ideas that are visible to everyone. Similarly, personal blogs can be used to express professional opinions and insights to showcase certain skills in a particular field. Regardless of specialty, the idea is to selflessly demonstrate certain skills and knowledge. What are they used for? In the previous paragraphs, we have given a brief description of these platforms. We can say that they are used in many things, especially if they are personal, they are used to accept people who have the same opinion or follow the same goals. In them, you can comment directly to the person who owns the blog, browse a general audience, interact with other people we don't know, and if so, chat you can talk through To summarize this part, we consider it as a private league tool, where a blogger (called an account holder) uses a space on the network to offer thoughts, feelings or opinions related to does. special topic. How do you create a personal blog? Most platforms that offer blogging services do so for free, but they also offer premium services with certain payment terms; You don't need to have deep knowledge of computers or programming, just invest a few minutes and you can create a blog that will generate a lot of interest. However, if you want to professionalize your personal blog, we recommend using a premium or paid platform, as the free options do not offer the resources or tools to do so. So you can create it from any platform like Blogger.com, WordPress.com, Jimdo or Tumblr."
 }

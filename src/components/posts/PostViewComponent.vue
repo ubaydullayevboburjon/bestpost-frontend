@@ -1,31 +1,40 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import axios from '../../plugins/axios'
-import { loadRouteLocation } from 'vue-router';
-export default defineComponent({
-    components: {
+import { RouterLink } from 'vue-router';
 
-    },
+export default defineComponent({
+  
     props: {
-        id: Number,
+        id: Number ,
         title: String,
         description: String,
         imagePath: String,
         userId: Number,
         createdAt: String,
         updatedAt: String,
+
+
     },
     data() {
         return {
             imageFullPath: "" as string,
             baseURL: "" as string,
+            postdatasend : false as boolean,
+
+            postId: 0 as number | undefined, 
         }
     },
     methods: {
         load() {
             this.baseURL = axios.defaults.baseURL!;
             this.imageFullPath = this.baseURL + "/" + this.imagePath;
+
+            this.postId = this.id;
         },
+        fullInfo(){
+            this.postdatasend = true;
+        }
     },
     mounted() {
         this.load();
@@ -33,9 +42,8 @@ export default defineComponent({
 });
 </script>
 
-<template>
+<template >
     <div style="width: 350px;margin-top: 20px;">
-
         <div style="max-height: 515px;"
             class="hover:-rotate-1 max-w-sm ml-9 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <a href="#">
@@ -60,5 +68,11 @@ export default defineComponent({
                 </a>
             </div>
         </div>
+    </div>
+    <div v-if="postdatasend==true">
+        <PostFullViewComponentVue
+        :id = id>
+
+        </PostFullViewComponentVue>
     </div>
 </template>

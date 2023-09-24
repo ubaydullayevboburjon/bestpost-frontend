@@ -8,7 +8,7 @@
   }
 </script>
 <template>
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto" style="margin-right: 8px;">
   <div class="flex items-center md:order-2">
 
       <!--begin::Uzbek-->

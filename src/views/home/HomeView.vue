@@ -4,6 +4,7 @@ import axios from '../../plugins/axios';
 import PostViewComponent from '../../components/posts/PostViewComponent.vue'
 import { PostViewModel } from '@/viewmodels/PostViewMoel';
 import { getToken } from '@/helpers/TokenHelper';
+import { RouterLink } from 'vue-router';
 
 export default defineComponent({
     components:{
@@ -19,6 +20,7 @@ export default defineComponent({
             createdAt:"" as string,
             updatedAt:"" as string,
             search:"" as string,
+            notfound:false as boolean,
 
             postList:[] as PostViewModel[], 
         }
@@ -38,7 +40,6 @@ export default defineComponent({
                 if(response == undefined){
                 this.$router.push("/auth/login")
                 }
-                console.log(response.data)
             }
 
         },
@@ -51,10 +52,20 @@ export default defineComponent({
             })
             this.postList = response.data;
         },
-        async search(search:any){
-            var response  = await axios.get("/api/posts/search?search="+search)
-            this.postList = response.data;
-        }
+        async searchPost(){
+            if(this.search !=""){
+                var response  = await axios.get("/api/posts/search?search="+this.search);
+                this.postList = response.data;
+                console.log(response)
+                if(response.data == ""){
+                    this.notfound = true;
+                }
+            }
+            else{
+                this.notfound = false;
+                this.getData()
+            }
+        },
     },
     created(){
         this.checker();
@@ -97,28 +108,30 @@ export default defineComponent({
                         <input type="search"  v-model="search" id="default-search"
                             class="block w-full  p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Search Mockups, Logos..." required>
-                        <button type="submit" @click="search(search)"
-                            class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
-                    </div>
+                            <button type="button" @click="searchPost()" class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{ $t("search") }}</button>
+                        </div>
                 </form>
 
             </div>
         <div style="padding: 40px;" class="flex flex-wrap">
             <ul style="display: flex; flex-wrap: wrap;">
-        <template v-for="element in postList">
-           <PostViewComponent
-            :id = element.id
-            :title=element.title
-            :description=element.description
-            :imagePath="element.imagePath"
-            :user-id=element.userId
-            :created-at=element.createdAt
-            :updated-at=element.updatedAt
-           ></PostViewComponent>
-        </template>
+                <RouterLink :to="`/posts/${element.id}`" v-for="element in postList" :params="element.id">
+                <PostViewComponent
+                    :id = element.id
+                    :title=element.title
+                    :description=element.description
+                    :imagePath="element.imagePath"
+                    :user-id=element.userId
+                    :created-at=element.createdAt
+                    :updated-at=element.updatedAt
+                ></PostViewComponent>
+                </RouterLink>
+            </ul>
 
-    </ul>
-    </div>
+            
+            <p v-show="notfound===true" class="w-full text-3xl font-semibold leading-normal text-gray-900 dark:text-white" style="margin-top: 150px; display: flex;align-items: center;justify-content: center;color: rgb(127, 118, 118);font-weight: normal;">{{ $t("notfound") }}</p>
+
+        </div>
 
    
 

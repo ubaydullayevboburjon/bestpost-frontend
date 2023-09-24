@@ -17,19 +17,22 @@
     "fullinformation":"To'liq ma'lumot",
 
     "profile":"Profil",
-    "profileSettings":"Profil sozlamalari",
-    "currentPassword":"Joriy parol",
+    "profileSettings":"Parolni yangilang",
+    "currentPassword":"Eski parol",
     "newPassword":"Yangi parol",
     "confirmPassword":"Parolni tasdiqlang",
+    "success":"Muvaffaqiyat o'zgardi!",
+
 
     "create": "Qo'shish",
     "save":"Saqlamoq",
     "change":"O'zgartirmoq",
     "cancel":"Bekor qilish",
     "signout": "Tark etmoq",
-
-
-
+    "notfound":"Siz izlagan postlar mavjud emas!",
+    "search":"Qidiruv",
+    "userPaswordInfo1":"Hisobingizni himoyalang",
+    "userPaswordInfo2":"Parol eng kamida 8 xonalik bo'lishi kerak. Qatnashishi kerak bo'lgan narsalar: «Katta harf», «Kichik harf», «Raqam» va «Belgilar»",
     "aboutpage":"Biz haqimizda Shaxsiy blog nima? Ushbu turdagi platformalar Internetda juda keng tarqalgan, faqat ikki yil oldin ular juda moda bo'lib qoldi va shunga qaramay ular veb-sahifalar uchun qo'shimcha imkoniyatdir. Biroq, ba'zida uning ta'rifini tuzilishi va funktsiyasi tufayli aniqlash qiyin. Ba'zan ular veb-platformalar va brendlar va mahsulotlarning rasmiy sahifalari bilan taqqoslanadi. Aytish mumkinki, shaxsiy bloglar har kimga ko'rinadigan individual fikrlar, his-tuyg'ular, his-tuyg'ular va g'oyalarni ifodalashga xizmat qiladi. Xuddi shunday, shaxsiy bloglar ma'lum bir sohada muayyan ko'nikmalarni namoyish qilish uchun professional fikr va tushunchalarni ifodalash uchun ishlatilishi mumkin. Mutaxassisligidan qat'i nazar, g'oya ma'lum ko'nikma va bilimlarni fidokorona namoyish etishdir. Ular nima uchun ishlatiladi? Oldingi paragraflarda biz ushbu platformalarning qisqacha tavsifini bergan edik. Aytishimiz mumkinki, ular ko'p narsalarda qo'llaniladi, ayniqsa, agar ular shaxsiy bo'lsa, ular bir xil fikrga ega yoki bir xil maqsadlarga ergashadigan odamlarni qabul qilish uchun ishlatiladi. Ularda siz to'g'ridan-to'g'ri blog egasiga fikr bildirishingiz, umumiy auditoriyani ko'rib chiqishingiz, biz tanimaydigan boshqa odamlar bilan muloqot qilishingiz va agar shunday bo'lsa, suhbatlashishingiz mumkin. Ushbu qismni sarhisob qilish uchun biz uni shaxsiy deb hisoblaymiz. liga vositasi, bu erda blogger (hisob egasi deb ataladi) tarmoqdagi bo'sh joydan o'z fikrlari, his-tuyg'ulari yoki fikrlarini taklif qilish uchun foydalanadi. maxsus mavzu. Shaxsiy blogni qanday yaratasiz? Blog xizmatlarini taklif qiladigan ko'pgina platformalar buni bepul qiladi, lekin ular ma'lum to'lov shartlari bilan premium xizmatlarni ham taklif qilishadi; Kompyuterlar yoki dasturlash bo'yicha chuqur bilimga ega bo'lishingiz shart emas, shunchaki bir necha daqiqa sarflang va siz katta qiziqish uyg'otadigan blog yaratishingiz mumkin. Biroq, agar siz shaxsiy blogingizni professionallashtirishni istasangiz, biz premium yoki pullik platformadan foydalanishni tavsiya qilamiz, chunki bepul variantlar buning uchun resurslar yoki vositalarni taklif qilmaydi. Shunday qilib, siz uni Blogger.com, WordPress.com, Jimdo yoki Tumblr kabi istalgan platformadan yaratishingiz mumkin."
 
 }

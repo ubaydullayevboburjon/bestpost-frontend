@@ -94,7 +94,7 @@ export default defineComponent({
         formData.append("Description",this.editorData);
         formData.append("Image",this.editorImage);
         
-        var response = await axios.post("/api/posts/create", formData)
+        var response = await axios.post("/api/posts", formData)
         if(response.status === 200) this.$router.push("/")
       }
     },

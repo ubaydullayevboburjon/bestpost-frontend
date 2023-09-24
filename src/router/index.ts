@@ -25,6 +25,14 @@ const router = createRouter({
           path: "/",
           component: ()=> import('../views/home/HomeView.vue')
         },
+        {
+          path: "posts/:id",
+          component: ()=> import('../components/posts/PostFullViewComponent.vue')
+        },
+        {
+          path: "users",
+          component: ()=> import('../views/users/AllUserProfileView.vue')
+        },
       ]
     },
     {

@@ -25,10 +25,12 @@ export default defineComponent({
                     'Content-Type': 'application/json'
                 }
             });
-            if (response.status == 200) {
+           if(response == undefined || response.status != 200 ){
+              this.existError = true;
+            }
+            else if (response.status == 200) {
                 var token: string = response.data.token;
                 document.cookie = "access_token=" + token + "; expires: SESSION; path=/";
-                console.log(response.data.token);
                 this.$router.push("/");
             }
             else {

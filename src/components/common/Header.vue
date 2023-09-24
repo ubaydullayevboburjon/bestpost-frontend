@@ -18,7 +18,7 @@ export default defineComponent({
       lastName: "" as string,
       email: "" as string,
       baseURL: "" as String,
-
+      defaultImage: false as boolean,
       profil:[] as UserViewModel[],
       content: false as boolean
     }
@@ -40,7 +40,12 @@ export default defineComponent({
           this.firstName = responseData.firstName || "";
           this.lastName = responseData.lastName || "";
           this.email = responseData.email || "";
-          this.imageFullPath = this.baseURL + "/" + responseData.imagePath || "";
+          if(responseData.imagePath == ""){
+            this.defaultImage = true;
+          }
+          else{
+            this.imageFullPath = this.baseURL + "/" + responseData.imagePath || "";
+          }
         }
         
 
@@ -62,7 +67,6 @@ export default defineComponent({
                 if(response == undefined){
                 this.$router.push("/auth/login")
                 }
-                console.log(response.data)
             }
 
         },
@@ -115,7 +119,7 @@ export default defineComponent({
                   $t("home") }}</a>
             </li>
             <li>
-              <a href="#"
+              <a href="users"
                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-3 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">{{
                   $t("users") }}</a>
             </li>
@@ -132,16 +136,16 @@ export default defineComponent({
           </ul>
         </div>
         <div class="flex items-center">
-          <LanguageSwitcher style="margin-right: 8px;"></LanguageSwitcher>
-          <ThemeSwitcher style="margin-right: 8px;"></ThemeSwitcher>
+          <LanguageSwitcher></LanguageSwitcher>
+          <ThemeSwitcher></ThemeSwitcher>
           <div class="flex items-center ml-3">
             <div style="margin-right: 25px;">
               <button type="button"
                 class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 aria-expanded="false" data-dropdown-toggle="dropdown-user">
                 <span class="sr-only">Open user menu</span>
-                <img class="w-9 h-9 rounded-full" v-bind:src="imageFullPath"
-                  alt="user photo">
+                <img v-show="defaultImage === true" class="w-9 h-9 rounded-full" style="object-fit:cover;" src="../../assets/images.png">
+                <img v-show="defaultImage === false" class="w-9 h-9 rounded-full" style="object-fit:cover;" v-bind:src="imageFullPath">
               </button>
             </div>
             <div

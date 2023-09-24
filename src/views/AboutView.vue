@@ -5,7 +5,6 @@ import axios from '../plugins/axios';
 export default defineComponent({
   methods:{
     async checker(){
-      debugger
             var token = getToken();
             if(token == undefined || token == ""){
                 this.$router.push("/auth/login")
