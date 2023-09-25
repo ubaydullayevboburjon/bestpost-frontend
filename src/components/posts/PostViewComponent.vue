@@ -69,10 +69,5 @@ export default defineComponent({
             </div>
         </div>
     </div>
-    <div v-if="postdatasend==true">
-        <PostFullViewComponentVue
-        :id = id>
-
-        </PostFullViewComponentVue>
-    </div>
+   
 </template>

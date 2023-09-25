@@ -5,6 +5,7 @@ import PostViewComponent from '../../components/posts/PostViewComponent.vue'
 import { PostViewModel } from '@/viewmodels/PostViewMoel';
 import { getToken } from '@/helpers/TokenHelper';
 import { RouterLink } from 'vue-router';
+import { PaginationMetaData } from '@/utils/PaginationUtils';
 
 export default defineComponent({
     components:{
@@ -22,6 +23,12 @@ export default defineComponent({
             search:"" as string,
             notfound:false as boolean,
 
+            hasNext: false,
+            hasPrevious: false,            
+            currentPage: 1 as number,
+            totalPages: 1 as number,
+
+            metaData: new PaginationMetaData(),
             postList:[] as PostViewModel[], 
         }
     },
@@ -44,32 +51,32 @@ export default defineComponent({
 
         },
 
-        async getData(){
-            var response = await axios.get("api/posts?page=1",{
+        async getData(page: Number){
+            var response = await axios.get("api/posts?page="+page,{
                 headers:{
                     'Authorization' : `Bearer ${getToken()}`
                 }
             })
             this.postList = response.data;
+
         },
         async searchPost(){
             if(this.search !=""){
                 var response  = await axios.get("/api/posts/search?search="+this.search);
                 this.postList = response.data;
-                console.log(response)
                 if(response.data == ""){
                     this.notfound = true;
                 }
             }
             else{
                 this.notfound = false;
-                this.getData()
+                this.getData(1)
             }
         },
     },
     created(){
         this.checker();
-        this.getData();
+        this.getData(1);
     },
    
 })

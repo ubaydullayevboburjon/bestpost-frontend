@@ -49,7 +49,6 @@ export default defineComponent({
                 'Content-Type':'multipart/form-data'
               }
             })
-            console.log('Register successful!', response);
             this.statuscode = response.status
             if(this.statuscode === 409) {
               this.existError = true
@@ -63,7 +62,6 @@ export default defineComponent({
         async sendCode(){
             if(this.statuscode ===200 ){
               var responseCode = await axios.post('/api/auth/register/send-code?email='+ this.email);
-              console.log(responseCode.status)
               this.forConfirm = true;
             }
         },
@@ -78,7 +76,6 @@ export default defineComponent({
               'Content-Type': 'application/json'
             }
           });
-          console.log(response.status)
           if(response.status ===200){
             var token: string = response.data.token;
             document.cookie = "access_token=" + token + "; expires: SESSION; path=/";

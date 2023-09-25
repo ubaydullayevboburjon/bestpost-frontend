@@ -75,9 +75,7 @@ export default defineComponent({
     };
   },
   methods:{
-    getdata(){
-      console.log(this.editorData);
-    },
+    
     handleFileChange(event: any) {
       const files = event.target.files;
       if (files && files.length > 0) {
@@ -115,7 +113,6 @@ export default defineComponent({
                 if(response == undefined){
                 this.$router.push("/auth/login")
                 }
-                console.log(response.data)
             }
 
         },

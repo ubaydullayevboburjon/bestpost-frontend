@@ -22,6 +22,9 @@
     "newPassword":"New password",
     "confirmPassword":"Confirm password",
 
+    "ok":"Ok",
+    "edit": "Edit",
+    "delete":"Delete",
     "create": "Create",
     "save": "Save",
     "change":"Change",
@@ -30,6 +33,10 @@
     "notfound":"Posts not found!",
     "search":"Search",
     "success":"Success has been changed!",
+
+    "fullInformation":"Full information",
+    "readMore":"Read more",
+    "forDelete":"Are you sure you want to delete this?",
 
 
     "userPaswordInfo1":"Protect your account",

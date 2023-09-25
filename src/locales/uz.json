@@ -23,7 +23,13 @@
     "confirmPassword":"Parolni tasdiqlang",
     "success":"Muvaffaqiyat o'zgardi!",
 
-
+    "fullInformation":"Batafsil",
+    "readMore":"To'liq malumot",
+    "forDelete":"Haqiqatan ham buni oʻchirib tashlamoqchimisiz?",
+    
+    "ok":"Davom etish",
+    "edit": "Tahrirlash",
+    "delete":"O'chirish",
     "create": "Qo'shish",
     "save":"Saqlamoq",
     "change":"O'zgartirmoq",

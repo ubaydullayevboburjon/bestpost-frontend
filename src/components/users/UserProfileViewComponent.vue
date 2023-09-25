@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import axios from '../../plugins/axios'
+import {formatDate} from '../../helpers/DateHelper'
 export default defineComponent({
   props: {
     id: Number,
@@ -25,19 +26,34 @@ export default defineComponent({
       this.imageFullPath = this.baseURL + "/" + this.imagePath;
     },
   },
-  mounted(){
+  mounted() {
     this.load()
   }
 })
 </script>
 
 <template>
-    <a href="#"
-      class="flex p-2 mr-2 mb-3 flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row  hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-      <img class="object-cover w-full  md:h-auto md:w-48 " v-bind:src="imageFullPath" alt=""
-        style="border-radius: 100%; width: 100px ;height: 100px;">
-      <div class="flex flex-col justify-between p-4 leading-normal">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ firstName }} {{ lastName }}</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ username }}</p>
-      </div>
-</a></template>
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+
+  <tbody>
+    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+
+      <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+        <img class="w-10 h-10 rounded-full" v-bind:src="imageFullPath" alt="Jese image">
+        <div class="pl-3">
+          <div class="text-base font-semibold">{{ firstName }} {{ lastName }}</div>
+          <div class="font-normal text-gray-500">{{ email }}</div>
+        </div>
+      </th>
+      <td class="px-6 py-4">
+        React Developer
+      </td>
+      <td class="px-6 py-4">
+        <div class="flex items-center">
+          <div class="h-2.5 w-2.5 rounded-full bg-green-500 mr-2"></div> Online
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</template>

@@ -53,8 +53,25 @@ export default defineComponent({
 })
 </script>
 <template>
-    <div class="container p-5" style="margin: 0 auto;width: 1200px;border-radius: 7px;min-height:   20vh; display: flex;align-items: center;justify-content: center;flex-wrap: wrap;">
-            <ul style="display: flex; flex-wrap: wrap;">
+<div style="display: contents; ">
+
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Position
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                
+            </tr>
+        </thead>
+        <ul style="display: flex; flex-wrap: wrap;">
                 <template  v-for="element in profil" :params="element.id">
                 <UserProfileViewComponent
                 :firstName = element.firstName
@@ -67,5 +84,6 @@ export default defineComponent({
                 ></UserProfileViewComponent>
                 </template>
             </ul>
-    </div>
+    </table>
+</div>
 </template>
