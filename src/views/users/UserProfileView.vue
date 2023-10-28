@@ -217,7 +217,7 @@ export default defineComponent({
   </div>
   <div class="w-full" style="display: flex; justify-content: center;position: relative;">
 
-    <div class="border rounded-lg border-gray-600 w-3/5 flex mb-5" style="width: 913px;">
+    <div class="border rounded-lg border-gray-600 w-3/5 flex mb-5" >
       <div class="  border-gray-600 flex"
         style="display: flex;flex-direction: column;border-right: 1px solid gray; width: 250px;height: 100%;border-bottom-left-radius: 7px;border-top-left-radius: 7px;">
         <div style="font-size: 22px;border-bottom: 1px solid rgb(186, 180, 180);display: block; padding: 10px;">

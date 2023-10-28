@@ -6,15 +6,9 @@ import {ConfirmDto} from '../../dtos/AuthConfirmDto'
 export default defineComponent({
     data() {
         return {
-            firstName:"" as string,
-            lastName:"" as string,
-            username:"" as string,
             email: "" as string,
             password: "" as string,
 
-            checkFName:false as boolean,
-            checkLName:false as boolean,
-            checkUsername:false as boolean,
             checkEmail:false as boolean,
             checkPassword:false as boolean,
             checkAll:false as boolean,
@@ -38,9 +32,6 @@ export default defineComponent({
           this.checkData();
           if(this.checkAll){
             const formData = new FormData();
-            formData.append('FirstName', this.firstName.toString());
-            formData.append('LastName', this.lastName.toString());
-            formData.append('Username', this.username.toString());
             formData.append('Email', this.email.toString());
             formData.append('Password', this.password.toString());
             
@@ -87,19 +78,7 @@ export default defineComponent({
         },
 
         checkData(){
-          if(this.firstName.length<3){
-            this.inputEror = "Firstname is required!"
-            this.checkFName = true
-          }  
-          else if(this.lastName.length<3){
-            this.inputEror = "LastName is required!"
-            this.checkLName = true
-          }   
-          else if(this.username.length<3) {
-            this.inputEror = "Invalid username!"
-            this.checkUsername = true
-          }
-          else if(this.email.length<10){
+          if(this.email.length<10){
             this.inputEror = "Inavlid email!"
             this.checkEmail = true 
           }
@@ -134,55 +113,38 @@ export default defineComponent({
   <FlowbiteSetup></FlowbiteSetup>
   <div class="form-wrap" v-show="forConfirm === false">
     <form class="login">
-      <div class="flex">
-        <p class="login-register mt-2">Already have an account? </p>
-        <a href="login" class="mx-2 mt-2" style="font-family: Georgia, 'Times New Roman', Times, serif,bold;">Login</a>
-      </div>
-      
-      <h2>Create your </h2>
-      <h2 style="margin-bottom: 20px;">Best Post account </h2>
-      
-      <div v-show="existError===true" id="alert-border-2" class="flex items-center p-4 mb-4 mb-4 text-red-800  bg-red-100 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
-        role="alert">
-        <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-          viewBox="0 0 20 20">
-          <path
-          d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-        </svg>
-        <div class="ml-3 text-sm font-medium" style="width: 290px;">
-          {{ inputEror }}
+    
+      <h2 style="margin-bottom: 10px;">Reset password !</h2>
+      <h1 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; margin-bottom: 10px;">We send code your email!</h1>
+        <div v-show="existError===true" id="alert-border-2" class="flex items-center p-4 mb-4 mb-4 text-red-800  bg-red-100 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
+            role="alert">
+            <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            viewBox="0 0 20 20">
+            <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <div class="ml-3 text-sm font-medium" style="width: 290px;">
+            {{ inputEror }}
+            </div>
         </div>
-  </div>
   
   <div class="inputs relative" v-show="forConfirm === false">
-    <icon name="user" class="icon" style=" position: absolute;z-index: 1;top: 14px;left: 5px;" />
-    <div class="input">
-      <input v-model="firstName" style="padding:0 35px;" type="text" placeholder="First name" />
-    </div>
+   
     
-    <icon name="user" class="icon" style=" position: absolute;z-index: 1;top: 70px;left: 5px;" />
-    <div class="input ">
-      <input v-model="lastName" type="text" placeholder="Last name" style="padding: 0 35px;" />
-    </div>
-    
-    <icon name="user" class="icon" style=" position: absolute;z-index: 1;top: 126px;left: 5px;" />
-    <div class="input ">
-      <input v-model="username" type="text" placeholder="Username" style="padding: 0 35px;" />
-    </div>
-    
-    <icon name="email" class="icon" style=" position: absolute;z-index: 1;top: 186px;left: 5px;" />
+    <icon name="email" class="icon" style=" position: absolute;z-index: 1;top: 14px;left: 5px;" />
     <div class="input ">
       <input v-model="email" type="email" placeholder="Email" style="padding: 0 35px;" />
     </div>
     
-    <icon name="password" class="icon" style=" position: absolute;z-index: 1;top: 243px;left: 5px;" />
+    <icon name="password" class="icon" style=" position: absolute;z-index: 1;top: 70px;left: 5px;" />
     <div class="input ">
       <input v-model="password" type="password" placeholder="Password" style="padding: 0 35px;" />
     </div>
     
   </div>
   <button type="button" @click="registerAsync()" style="width: 150px;"
-  class="mt-10 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Register</button>
+  class="mt-10 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Send code</button>
+
 </form>
 </div>
 
