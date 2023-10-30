@@ -50,7 +50,7 @@ export default defineComponent({
 </script>
 <template>
   <FlowbiteSetup></FlowbiteSetup>
-  <div class="form-wrap">
+  <div class="form-wrap ">
     <form class="login">
       <div class="flex">
         <p class="login-register mt-2">Don't have an account?</p>
