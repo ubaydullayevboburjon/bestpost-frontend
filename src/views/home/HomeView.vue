@@ -22,6 +22,7 @@ export default defineComponent({
             updatedAt:"" as string,
             search:"" as string,
             notfound:false as boolean,
+            placeholder : " Search" as string,
 
             hasNext: false,
             hasPrevious: false,            

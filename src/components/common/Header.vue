@@ -139,13 +139,13 @@ export default defineComponent({
           <LanguageSwitcher></LanguageSwitcher>
           <ThemeSwitcher></ThemeSwitcher>
           <div class="flex items-center ml-3">
-            <div style="margin-right: 25px;">
+            <div style="margin-right: 20px;">
               <button type="button"
-                class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-400 dark:focus:ring-gray-600"
                 aria-expanded="false" data-dropdown-toggle="dropdown-user">
                 <span class="sr-only">Open user menu</span>
-                <img v-show="defaultImage === true" class="w-9 h-9 rounded-full" style="object-fit:cover;" src="../../assets/images.png">
-                <img v-show="defaultImage === false" class="w-9 h-9 rounded-full" style="object-fit:cover;" v-bind:src="imageFullPath">
+                <img v-show="defaultImage === true" class="w-10 h-10 rounded-full" style="object-fit:cover;" src="../../assets/images.png">
+                <img v-show="defaultImage === false" class="w-10 h-10 rounded-full" style="object-fit:cover;" v-bind:src="imageFullPath">
               </button>
             </div>
             <div

@@ -11,7 +11,7 @@ import axios from "../plugins/axios";
 </script>
 
 <template>
-  <div>
+  <div class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
 
     <Header></Header>
     <FlowBiteSetup></FlowBiteSetup>
