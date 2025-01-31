@@ -290,7 +290,8 @@ export default defineComponent({
         height: 50px;
 
         &:focus {
-          outline: none;
+        outline: none;
+        box-shadow: none;
         }
       }
 
